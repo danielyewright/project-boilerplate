@@ -1,0 +1,39 @@
+.navbar-default {
+  // background-color: rgba(255,255,255,.875);
+  background-color: #ebebeb;
+  padding: 20px;
+  // border: none;
+
+  .navbar-brand {
+    img {
+      height: 60px;
+      margin-top: -20px;
+
+      @media screen and (max-width: 768px) {
+        height: 33px;
+        margin-top: -5px;
+      }
+    }
+  }
+
+  .navbar-nav {
+    > li {
+      > a {
+        font-family: $bodyFont;
+        font-weight: 700;
+        // color: $bodyFontColor;
+        color: $navColor;
+      }
+
+      > button {
+        &.btn-primary {
+          background-color: transparent;
+          border-color: $primaryColor;
+          color: $primaryColor;
+          font-weight: 700;
+          padding: 6px 20px;
+        }
+      }
+    }
+  }
+}

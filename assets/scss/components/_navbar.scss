@@ -4,6 +4,15 @@
   padding: 20px;
   border: none;
 
+  .navbar-toggle {
+    border: none;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
   .navbar-brand {
     img {
       height: 60px;

@@ -111,7 +111,7 @@ gulp.task('bs-reload', function() {
  */
 gulp.task('clean', function() {
   return del([
-    'dist/'
+    'docs/'
   ]);
 });
 
@@ -120,9 +120,9 @@ gulp.task('clean', function() {
  * by the zipped file when unzipped
  */
 gulp.task('clean:prod', function() {
-  return del('dist/' + packageJSON.name + '-v' + packageJSON.version, [
-    'dist/**/DS_Store',
-    'dist/**/*.DS_Store'
+  return del('docs/' + packageJSON.name + '-v' + packageJSON.version, [
+    'docs/**/DS_Store',
+    'docs/**/*.DS_Store'
   ]);
 });
 
@@ -131,15 +131,15 @@ gulp.task('clean:prod', function() {
  * to change 'name' and 'version' in package.json
  */
 gulp.task('zip', function() {
-  return gulp.src('dist/**/*')
+  return gulp.src('docs/**/*')
   .pipe(zip(packageJSON.name + '-v' + packageJSON.version + '.zip'))
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest('docs'));
 });
 
 /* Build task for building the projet into a testable file structure */
 gulp.task('build:dev', ['sass', 'styles', 'images', 'scripts'], function() {
   gulp.src(dist, {base: './'})
-  .pipe(gulp.dest('dist/'));
+  .pipe(gulp.dest('docs/'));
 });
 
 /* Build task for production that deletes unwanted files,

@@ -2,6 +2,29 @@
     background-color: #f5f5f5;
     border-bottom: 1px solid #e7e7e7;
     padding: 60px 0;
+
+    .media { 
+        border-bottom: 1px solid #e7e7e7; 
+        padding-bottom: 15px;
+
+        &:last-child { border-bottom: none; }
+    }
+
+    .media-heading {
+        font-size: 16px;
+    }
+
+    .media-heading + p {
+        font-size: 13px;
+        font-style: italic;
+        color: #777;
+    }
+
+    .col-sm-4 {
+        @media screen and (max-width: 768px) {
+            padding-top: 40px;
+        }
+    }
 }
 
 .copyright {

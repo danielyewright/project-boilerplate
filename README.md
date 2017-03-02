@@ -6,7 +6,7 @@ This is the main repo for the website redesign, so that we can keep all developm
 
 Clone the repo:
 ```
-git clone https://github.com/FederationOfFathers/website.git
+git clone https://github.com/danielyewright/project-starter.git
 ```
 
 Install dependencies:

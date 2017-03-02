@@ -1,10 +1,9 @@
 {
-  "name": "fofgaming",
+  "name": "project-starter",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
   "scripts": {
-    "gh-pages": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Daniely Wright",

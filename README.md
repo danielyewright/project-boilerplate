@@ -11,7 +11,7 @@ git clone https://github.com/danielyewright/project-starter.git
 
 Install dependencies:
 ```
-npm install
+npm install && bower install
 ```
 
 Run the default task:

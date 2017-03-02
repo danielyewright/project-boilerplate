@@ -20,7 +20,6 @@ var packageJSON = require('./package.json');
  */
 var dist = [
   './assets/js/main.min.js',
-  // './assets/libs/bootstrap/dist/css/bootstrap.css',
   './assets/css/main.min.css',
   './assets/images/**/*',
   './assets/fonts/**/*',
@@ -111,7 +110,7 @@ gulp.task('bs-reload', function() {
  */
 gulp.task('clean', function() {
   return del([
-    'docs/'
+    'dist/'
   ]);
 });
 
@@ -120,9 +119,9 @@ gulp.task('clean', function() {
  * by the zipped file when unzipped
  */
 gulp.task('clean:prod', function() {
-  return del('docs/' + packageJSON.name + '-v' + packageJSON.version, [
-    'docs/**/DS_Store',
-    'docs/**/*.DS_Store'
+  return del('dist/' + packageJSON.name + '-v' + packageJSON.version, [
+    'dist/**/DS_Store',
+    'dist/**/*.DS_Store'
   ]);
 });
 
@@ -131,15 +130,15 @@ gulp.task('clean:prod', function() {
  * to change 'name' and 'version' in package.json
  */
 gulp.task('zip', function() {
-  return gulp.src('docs/**/*')
+  return gulp.src('dist/**/*')
   .pipe(zip(packageJSON.name + '-v' + packageJSON.version + '.zip'))
-  .pipe(gulp.dest('docs'));
+  .pipe(gulp.dest('dist'));
 });
 
 /* Build task for building the projet into a testable file structure */
 gulp.task('build:dev', ['sass', 'styles', 'images', 'scripts'], function() {
   gulp.src(dist, {base: './'})
-  .pipe(gulp.dest('docs/'));
+  .pipe(gulp.dest('dist/'));
 });
 
 /* Build task for production that deletes unwanted files,
@@ -156,7 +155,7 @@ gulp.task('default', ['sass', 'styles', 'images', 'scripts', 'copyIconFonts', 'c
   /* Watch scss, run the sass task on change. */
   gulp.watch(['assets/scss/*.scss', 'assets/scss/**/*.scss'], ['styles', 'sass'])
   /* Watch .js files, run the scripts task on change. */
-  gulp.watch(['assets/js/*.js'], ['scripts'])
+  gulp.watch(['assets/js/*.js', '!assets/libs/jquery/**', '!assets/libs/bootstrap/**', '!assets/js/main.js', '!assets/js/main.min.js'], ['scripts'])
   /* Watch .jade files, run the bs-reload task on change. */
   gulp.watch(['*.html'], ['bs-reload']);
 });

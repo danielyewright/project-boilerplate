@@ -1,4 +1,4 @@
-## FoF Website
+## Project Starter
 
 This is the main repo for the website redesign, so that we can keep all development/design in one central place.
 
@@ -36,7 +36,3 @@ To build the project and see what it would look like pre-production, run `gulp b
 If all the files are present in the `dist` folder and the project is ready for production, you can run `gulp build:prod`. This will use all the files in the `dist` folder, delete any hidden/unwanted files, and create a zip file ready for distribution.
 
 **NOTE: If you've already run the `build:dev` task, when running `gulp` it will delete the entire `dist` directory. You'll have to run the `build:dev` task again to generate the files.**
-
-To push the `dist` directory to another branch, for example `gh-pages`, run the following command:
-
-`git subtree push --prefix dist origin gh-pages`

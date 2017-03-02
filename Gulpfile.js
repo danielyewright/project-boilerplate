@@ -20,7 +20,7 @@ var packageJSON = require('./package.json');
  */
 var dist = [
   './assets/js/main.min.js',
-  './assets/css/main.min.css',
+  './assets/css/style.css',
   './assets/images/**/*',
   './assets/fonts/**/*',
   './*.html',
@@ -38,14 +38,14 @@ gulp.task('scripts', function() {
   .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
   .pipe(concat('main.js'))
   .pipe(gulp.dest('assets/js'))
-  .pipe(rename({suffix: '.min'}))
+  // .pipe(rename({suffix: '.min'}))
   .pipe(uglify())
   .pipe(gulp.dest('assets/js'));
 });
 
 /* Sass task */
 gulp.task('sass', function() {
-  return gulp.src('assets/scss/main.scss')
+  return gulp.src('assets/scss/style.scss')
   .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
   .pipe(sass({includePaths: ['assets/scss']}))
   .pipe(gulp.dest('assets/css'))
@@ -61,11 +61,11 @@ gulp.task('styles', function() {
     /* Add your CSS files here, they will be combined in this order */
     'assets/libs/bootstrap/dist/css/bootstrap.min.css',
     'assets/libs/font-awesome/css/font-awesome.min.css',
-    'assets/css/main.css'
+    'assets/css/style.css'
   ])
-  .pipe(concat('main.css'))
+  .pipe(concat('style.css'))
   .pipe(gulp.dest('assets/css'))
-  .pipe(rename({suffix: '.min'}))
+  // .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest('assets/css'))
   .pipe(reload({stream:true}));
 });
